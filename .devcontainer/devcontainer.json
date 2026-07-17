@@ -1,0 +1,20 @@
+{
+  "name": "ODIN + Raylib DevPod",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/v1xp-org/devpod-features/crush:1": {},
+    "ghcr.io/v1xp-org/devpod-features/act:1": {}
+  },
+  "containerEnv": {
+    "DISPLAY": "${localEnv:DISPLAY}"
+  },
+  "mounts": [
+    "source=docker-storage,target=/var/lib/docker,type=volume"
+  ],
+  "runArgs": ["--privileged"],
+  "postCreateCommand": "post-create.sh",
+  "postStartCommand": "start-docker.sh",
+  "remoteUser": "vscode"
+}
