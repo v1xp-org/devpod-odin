@@ -11,7 +11,8 @@
     "DISPLAY": "${localEnv:DISPLAY}"
   },
   "mounts": [
-    "source=docker-storage,target=/var/lib/docker,type=volume"
+    "source=docker-storage,target=/var/lib/docker,type=volume",
+    "source=${localEnv:HOME}/.ssh,target=/tmp/host-ssh,readonly,type=bind,consistency=cached"
   ],
   "runArgs": ["--privileged"],
   "postCreateCommand": "post-create.sh",
